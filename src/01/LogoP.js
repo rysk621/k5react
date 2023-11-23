@@ -1,6 +1,6 @@
-function LogoP(){
+function LogoP({msg}){
     return(<p>
-        부산대학교 K-digital 5기 김수정
+        {msg}
     </p>);
 }
 
