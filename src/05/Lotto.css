@@ -1,0 +1,38 @@
+.sp {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    border-radius: 50%;
+    color: aliceblue;
+    font-weight: bolder;
+    border-color: black;
+    border-style: solid;
+    border-width: 2px;
+}
+
+#sp0 {
+    background-color: green;
+}
+
+#sp1 {
+    background-color: goldenrod;
+}
+
+#sp2 {
+    background-color: gray;
+}
+
+#sp3 {
+    background-color: teal;
+}
+
+#sp4 {
+    background-color: red;
+}
+
+.spp {
+    font-weight: bolder;
+}
