@@ -10,7 +10,7 @@ export default function TailButton({caption, handleClick, bColor}) {
     <button className={`inline-flex justify-center items-center
                         px-5 py-2 rounded-md h-10 m-2
                         ${tailColor[bColor]}
-                        bg-cyan-900 text-white`} // className 자체를 {``}으로 묶어야 하나봄
+                        bg-cyan-900 text-white`} // className 자체를 {``}으로 묶음. 전달받는 parameter: caption, handleClick method, bColor
             onClick={handleClick}>
         {caption}
     </button>

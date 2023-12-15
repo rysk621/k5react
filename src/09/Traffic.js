@@ -12,7 +12,10 @@ export default function Traffic() {
     const [selC1, setSelC1] = useState(); // 선택된 대분류
     const [selC2, setSelC2] = useState(); // 선택된 중분류
 
-    const [detail, setDetail] = useState();
+    const [detail, setDetail] = useState(); // 상세정보
+
+    // 상세정보 보기: 배열에서 키 설정, 설정한 키 순서대로
+    const detailKey = ['사고건수', '사망자수', '중상자수', '경상자수', '부상신고자수'];
 
     // data fetcher. To avoid falling in call-back hell, use then-chaining or async-await. await 사용하려면 반드시 async 함수여야 함.
     const getData = async ()=>{
@@ -28,8 +31,7 @@ export default function Traffic() {
         setTData(data.data); // setTData method 이용, parameter를 set 뒤에 붙은 변수에 전달 ==> console에서 확인되는 data를 json type data로 설정.
     }
 
-    
-    // component 시작시 1번 실행하는 useEffect(()=>{},[]) method. 호출하지 않아도 1번 실행함. 안에 getData() method를 넣음.
+    // component 시작시 1번 실행하는 useEffect(()=>{},[]) method. 호출하지 않아도 1번 실행함. 함수 안에 getData() method를 넣음.
     useEffect(()=>{
         getData();
     },[])
@@ -72,7 +74,13 @@ export default function Traffic() {
         if (tData === undefined) return;
         let tm = tData.filter((item)=> item.사고유형_대분류 === selC1 && item.사고유형_중분류 === selC2);
         tm = tm[0];
-        console.log("c2 = ", tm);
+        console.log("detail = ", tm);
+
+        if (tm === undefined) return; // filter에서 걸린 게 없을 때 return
+        tm = detailKey.map((k,idx)=><div className='flex flex-col m-0' key={`d1${idx}`}>
+                                                <div className='inline-flex justify-center items-center p-2 m-0 bg-red-900 text-white '>{k}</div>
+                                                <div className='inline-flex justify-center items-center p-2 bg-red-300'>{parseInt(tm[k]).toLocaleString('ko-kR')}</div></div>) //keys
+        setDetail(tm);
     },[selC2])
 
   return (
@@ -82,6 +90,9 @@ export default function Traffic() {
             <div className='w-full my-10'>
                 {c1 && <TrafficNav title={'대분류'} cArr={c1} sel={selC1} setSel = {setSelC1} ></TrafficNav>}
                 {c2 && <TrafficNav title={'중분류'} cArr={c2} sel={selC2} setSel = {setSelC2} ></TrafficNav>}
+            </div>
+            <div className='grid grid-cols-5 gap-2'>
+                {detail}
             </div>
         </div>
     </div>

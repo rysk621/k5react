@@ -6,6 +6,7 @@ export default function TrafficNav({title, cArr, sel, setSel}) {
         setSel(item);
     };
 
+    // handleClick ==> handleBtClick(item) method를 callback
     const tags = cArr.map((item, idx)=>
         <TailButton caption={item} key={`bt${idx}`} bColor={item === sel ? 'orange' : 'sky'} handleClick={()=>handleBtClick(item)} />
     )
