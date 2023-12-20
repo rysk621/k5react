@@ -7,7 +7,8 @@ import './App.css';
 // import Frcst from './07/Frcst';
 // import RefTest from './08/RefTest';
 // import Traffic from './09/Traffic';
-import Gallery from './10/Gallery';
+// import Gallery from './10/Gallery';
+import Fest from './11/Fest';
 
 function App() {
   return (
@@ -20,7 +21,8 @@ function App() {
       {/* <Frcst /> */}
       {/* <RefTest /> */}
       {/* {<Traffic />} */}
-      <Gallery />
+      {/* <Gallery /> */}
+      <Fest />
     </>
   );
 }
