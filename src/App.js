@@ -1,4 +1,3 @@
-import RMain from './12/RMain';
 import './App.css';
 // import Logo from './01/Logo';
 // import ClockMain from './02/ClockMain';
@@ -10,6 +9,8 @@ import './App.css';
 // import Traffic from './09/Traffic';
 // import Gallery from './10/Gallery';
 // import Fest from './11/Fest';
+// import RMain from './12/RMain';
+import Frcst from './13/Frcst';
 
 function App() {
   return (
@@ -24,7 +25,8 @@ function App() {
       {/* {<Traffic />} */}
       {/* <Gallery /> */}
       {/* <Fest /> */}
-      <RMain />
+      {/* <RMain /> */}
+      <Frcst />
     </>
   );
 }
